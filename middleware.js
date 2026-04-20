@@ -1,14 +1,12 @@
-export const config = {
-  matcher: ['/((?!login|api/login|_next/static|_next/image|favicon.ico).*)'],
-};
-
-export default function middleware(req) {
-  const cookie = req.headers.get('cookie') || '';
+export default function middleware(request) {
+  const cookie = request.headers.get('cookie') || '';
   const isAuthenticated = cookie.includes('mw_auth=authenticated');
 
   if (!isAuthenticated) {
-    const url = req.nextUrl.clone();
-    url.pathname = '/login';
-    return Response.redirect(url);
+    return Response.redirect(new URL('/login.html', request.url));
   }
 }
+
+export const config = {
+  matcher: ['/index.html', '/apply/:path*', '/approve/:path*', '/reception/:path*'],
+};
