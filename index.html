@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MW入退館管理システム_モックアップサイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  background: linear-gradient(180deg, #0f1f3d 0%, #1a2f52 100%);
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+  text-align: center;
+  color: white;
+}
+.hero-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+}
+
+.entrance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.entrance-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+.entrance-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.entrance-color-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+
+.entrance-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 12px auto 8px;
+}
+.entrance-icon svg { width: 32px; height: 32px; }
+
+.entrance-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.entrance-subname {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.entrance-desc {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.7;
+  flex: 1;
+  text-align: left;
+}
+
+.entrance-users {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.entrance-cta {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.footer-note {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-title">MW入退館管理システム_モックアップサイト</div>
+  <div class="hero-sub">3つの主要コンポーネントの画面遷移を確認できます</div>
+</div>
+
+<div class="entrance-grid">
+
+  <!-- 申請サイト -->
+  <a href="apply/index.html" class="entrance-card">
+    <div class="entrance-color-bar" style="background:#2563eb;"></div>
+    <div class="entrance-icon" style="background:#eff6ff;color:#2563eb;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H5v14h14V5h-4M9 5v4h6V5M9 5h6"/></svg>
+    </div>
+    <div>
+      <div class="entrance-name">申請サイト</div>
+      <div class="entrance-subname">Application Site</div>
+    </div>
+    <div class="entrance-desc">
+      来場側の業者・来場者が来場申請を行うサイト。工事作業・来客訪問・納品・廃棄物など全申請種別と、業者ID/個人IDの登録・管理機能を含みます。
+    </div>
+    <div class="entrance-users">
+      対象：業者主担当者・業者メンバー・来場者
+    </div>
+    <div class="entrance-cta" style="background:#eff6ff;color:#2563eb;">
+      サイトを確認する
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M6 4l4 4-4 4"/></svg>
+    </div>
+  </a>
+
+  <!-- 承認サイト -->
+  <a href="approve/index.html" class="entrance-card">
+    <div class="entrance-color-bar" style="background:#1e3a8a;"></div>
+    <div class="entrance-icon" style="background:#eef2ff;color:#1e3a8a;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4 12 9 17 20 6"/></svg>
+    </div>
+    <div>
+      <div class="entrance-name">承認サイト</div>
+      <div class="entrance-subname">Approval Site</div>
+    </div>
+    <div class="entrance-desc">
+      MW社の承認者・管理者が申請の承認業務を行うサイト。担当承認・グループ承認・差し戻し・代理承認・カレンダーによる予定確認を含みます。
+    </div>
+    <div class="entrance-users">
+      対象：担当承認者・グループ承認者
+    </div>
+    <div class="entrance-cta" style="background:#eef2ff;color:#1e3a8a;">
+      サイトを確認する
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M6 4l4 4-4 4"/></svg>
+    </div>
+  </a>
+
+  <!-- 受付webブラウザ -->
+  <a href="reception/index.html" class="entrance-card">
+    <div class="entrance-color-bar" style="background:#047857;"></div>
+    <div class="entrance-icon" style="background:#ecfdf5;color:#047857;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="14" x2="21" y2="14"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+    </div>
+    <div>
+      <div class="entrance-name">受付webブラウザ</div>
+      <div class="entrance-subname">Reception Tablet</div>
+    </div>
+    <div class="entrance-desc">
+      工場入口に設置するタブレット端末。QRスキャンによる入退館処理、工事作業の一括入退場、申請なし当日受付を来場者が自操作で完了します。
+    </div>
+    <div class="entrance-users">
+      対象：全来場者・他拠点社員・総務
+    </div>
+    <div class="entrance-cta" style="background:#ecfdf5;color:#047857;">
+      サイトを確認する
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M6 4l4 4-4 4"/></svg>
+    </div>
+  </a>
+
+</div>
+
+<div class="footer-note">
+  iPresence株式会社　/　各サイトのヘッダーから本トップページへ戻ることができます
+</div>
+
+</body>
+</html>

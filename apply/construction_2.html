@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工事作業申請 — 作業者・協力業者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="stepper"><div class="step done"><div class="step-num">✓</div><span class="step-label">工事内容入力</span></div><div class="step-sep"></div><div class="step active"><div class="step-num">2</div><span class="step-label">作業者・協力業者</span></div><div class="step-sep"></div><div class="step "><div class="step-num">3</div><span class="step-label">車両・書類</span></div><div class="step-sep"></div><div class="step "><div class="step-num">4</div><span class="step-label">確認・提出</span></div></div>
+<div class="main">
+<div class="card">
+  <div class="card-title">自社作業者の選択</div>
+  <div class="info-box">工事種別「空調・設備工事」に対して必要な資格を自動チェックします。</div>
+  <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--apply-light);margin-bottom:6px;background:var(--apply-pale);">
+    <input type="checkbox" checked>
+    <div class="person-avatar">TT</div>
+    <div style="flex:1;"><div style="display:flex;gap:8px;align-items:center;"><span class="person-name">田中 太郎</span><span class="badge badge-ok">資格 OK</span></div>
+    <div style="display:flex;gap:4px;margin-top:3px;"><span style="font-size:10px;padding:1px 6px;border-radius:4px;background:var(--gray-100);">冷媒フロン取扱技術者</span></div></div>
+  </label>
+  <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--apply-light);margin-bottom:6px;background:var(--apply-pale);">
+    <input type="checkbox" checked>
+    <div class="person-avatar">KS</div>
+    <div style="flex:1;"><div style="display:flex;gap:8px;align-items:center;"><span class="person-name">佐藤 健二</span><span class="badge badge-ok">資格 OK</span></div></div>
+  </label>
+  <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--gray-200);margin-bottom:6px;">
+    <input type="checkbox">
+    <div class="person-avatar">YM</div>
+    <div style="flex:1;"><div style="display:flex;gap:8px;align-items:center;"><span class="person-name">松本 勇</span><span class="badge badge-warn">要確認</span></div>
+    <div style="font-size:11px;color:var(--amber);margin-top:3px;">冷媒フロン取扱技術者の登録が未確認です</div></div>
+  </label>
+</div>
+<div class="card">
+  <div class="card-title">協力業者（連結業者）の追加<span style="font-size:11px;font-weight:400;color:var(--gray-400);margin-left:8px;text-transform:none;letter-spacing:0;">任意</span></div>
+  <div style="font-size:12px;color:var(--gray-500);margin-bottom:12px;">業者ID管理画面で事前に登録した連結業者から選択できます。</div>
+  <div style="background:var(--teal-pale);border:1px solid rgba(13,148,136,0.2);border-radius:8px;padding:12px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+      <span style="font-size:13px;font-weight:500;color:var(--teal);">株式会社山本工業</span>
+      <button style="font-size:11px;color:var(--red);background:none;border:none;cursor:pointer;">削除</button>
+    </div>
+    <label style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:6px;background:white;">
+      <input type="checkbox" checked>
+      <div class="person-avatar" style="background:rgba(13,148,136,0.15);color:var(--teal);">YY</div>
+      <div style="flex:1;"><span class="person-name">山本 義雄</span><span class="badge badge-ok" style="margin-left:8px;">資格 OK</span></div>
+    </label>
+  </div>
+  <button style="display:flex;align-items:center;gap:6px;padding:10px 14px;border:1px dashed var(--gray-300);border-radius:8px;cursor:pointer;color:var(--apply-primary);font-size:13px;background:white;width:100%;margin-top:10px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+    別の協力業者を追加する
+  </button>
+</div>
+<div class="btn-row btn-row-spread">
+  <a href="construction_1.html" class="btn btn-ghost"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>戻る</a>
+  <a href="construction_3.html" class="btn btn-apply-primary">次へ　車両・書類 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M6 4l4 4-4 4"/></svg></a>
+</div>
+</div></body></html>

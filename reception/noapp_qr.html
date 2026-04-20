@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申請サイトQR表示</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+body.reception { background: #e6f4ec; min-height: 100vh; }
+.tablet-frame {
+  max-width: 1080px;
+  min-height: 768px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+  border: 8px solid #1a1a1a;
+}
+.tablet-inner {
+  background: var(--reception-bg);
+  min-height: 752px;
+  display: flex;
+  flex-direction: column;
+}
+.rec-topbar {
+  background: var(--reception-primary);
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rec-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+.rec-logo-mark {
+  width: 28px; height: 28px;
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rec-logo-mark svg { width: 16px; height: 16px; }
+.rec-time {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+.rec-location {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 2px;
+}
+.rec-body {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.rec-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--gray-800);
+  margin-bottom: 8px;
+}
+.rec-subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 32px;
+}
+.rec-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.rec-menu-btn {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.rec-menu-btn:hover {
+  border-color: var(--reception-primary);
+  background: var(--reception-pale);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.rec-menu-ic {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--reception-pale);
+  color: var(--reception-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rec-menu-ic svg { width: 32px; height: 32px; }
+.rec-menu-label {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+.rec-menu-sub {
+  font-size: 12px;
+  color: var(--gray-400);
+  margin-top: 4px;
+}
+.rec-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--reception-primary);
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  align-self: flex-start;
+}
+.rec-back:hover { background: var(--reception-pale); }
+.rec-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.rec-card-wide {
+  background: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.big-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 18px;
+  border: 2px solid var(--gray-200);
+  border-radius: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  outline: none;
+}
+.big-input:focus { border-color: var(--reception-primary); }
+.big-btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+.tbtn {
+  padding: 18px 40px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.tbtn-primary { background: var(--reception-primary); color: white; }
+.tbtn-primary:hover { background: var(--reception-light); }
+.tbtn-ghost { background: white; color: var(--gray-700); border: 2px solid var(--gray-200); }
+.tbtn-ghost:hover { background: var(--gray-50); }
+.tbtn-success { background: #16a34a; color: white; }
+.tbtn-large { padding: 22px 48px; font-size: 18px; }
+
+.rec-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+.work-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 2px solid var(--reception-primary);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: var(--reception-pale);
+  cursor: pointer;
+}
+.work-item.unchecked { border-color: var(--gray-200); background: white; }
+.work-item input[type="checkbox"] {
+  width: 20px; height: 20px;
+  accent-color: var(--reception-primary);
+}
+.work-title { font-size: 15px; font-weight: 500; color: var(--gray-800); }
+.work-meta { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+.work-car {
+  font-size: 12px;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+}
+.success-circle {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.success-circle svg { width: 48px; height: 48px; color: #16a34a; }
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.rule-item input { margin-top: 3px; accent-color: var(--reception-primary); }
+.rule-text { font-size: 13px; color: var(--gray-700); }
+
+.contact-card {
+  background: var(--reception-pale);
+  border: 1px solid rgba(4,120,87,0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.contact-label { font-size: 11px; color: var(--reception-primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.contact-name { font-size: 18px; font-weight: 500; color: var(--gray-800); margin-top: 4px; }
+.contact-num { font-size: 22px; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--reception-primary); margin-top: 8px; font-variant-numeric: tabular-nums; }
+.contact-msg { 
+  margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(4,120,87,0.25);
+  font-size: 15px; color: var(--gray-700); line-height: 1.7;
+}
+.admin-badge {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--gray-400);
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+.qr-big {
+  width: 180px; height: 180px;
+  border: 4px solid var(--reception-primary);
+  border-radius: 12px;
+  background: white;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.qr-big::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  background: 
+    repeating-conic-gradient(#1a1a1a 0% 25%, transparent 0% 50%) 
+    50% / 12px 12px;
+  opacity: 0.9;
+}
+
+.entry-id-box {
+  background: #fef3c7;
+  border: 2px dashed var(--amber);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+.entry-id-label { font-size: 12px; color: var(--amber); font-weight: 500; }
+.entry-id-value { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 700; color: var(--amber); margin-top: 6px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; }
+.entry-id-note { font-size: 12px; color: var(--gray-600); margin-top: 6px; }
+</style>
+</head><body class="reception">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">受付webブラウザ</span>
+    <span style="color:#64748b;font-size:10px;margin-left:8px;">[ タブレット横向き想定：1080×768px ]</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div>
+<div class="tablet-frame"><div class="tablet-inner">
+<div class="rec-topbar">
+  <div>
+    <div class="rec-logo">
+      <div class="rec-logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <rect x="2" y="2" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.9"/>
+          <rect x="9" y="2" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.6"/>
+          <rect x="2" y="9" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.6"/>
+          <rect x="9" y="9" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.3"/>
+        </svg>
+      </div>
+      <div>
+        <div>MW 入退館受付</div>
+        <div class="rec-location">第1工場 正門受付</div>
+      </div>
+    </div>
+  </div>
+  <div class="rec-time" id="clock">2026/06/10 (水) 08:47</div>
+</div>
+<script>
+function updateClock(){
+  const d = new Date();
+  const days = ['日','月','火','水','木','金','土'];
+  const s = d.getFullYear()+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+
+    ' ('+days[d.getDay()]+') '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  const el = document.getElementById('clock');
+  if(el) el.textContent = s;
+}
+updateClock();
+setInterval(updateClock, 30000);
+</script>
+<div class="rec-body">
+  <a href="noapp.html" class="rec-back">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>
+  戻る
+</a>
+  <div class="rec-card" style="text-align:center;padding:40px;">
+    <div class="rec-title">申請サイトから申請する</div>
+    <div class="rec-subtitle">スマートフォンで下記QRを読み取り、申請サイトへアクセスしてください</div>
+    
+    <div class="qr-big"></div>
+    
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px 20px;margin:16px auto 20px;max-width:420px;font-size:14px;color:var(--gray-700);font-family:'DM Sans',sans-serif;word-break:break-all;">
+      https://apply.mw-access.jp/
+    </div>
+
+    <div style="font-size:13px;color:var(--gray-600);line-height:1.9;text-align:left;max-width:520px;margin:20px auto;padding:16px 20px;background:var(--reception-pale);border-radius:10px;">
+      <strong style="color:var(--reception-primary);">通常の承認フロー：</strong><br>
+      ① 申請サイトで来場申請を登録<br>
+      ② MW社担当者による承認（1〜2日）<br>
+      ③ 承認完了後、QRコードがメールで届きます<br>
+      ④ 次回来場時にそのQRを受付でスキャンしてください
+    </div>
+
+    <a href="index.html" class="tbtn tbtn-primary tbtn-large">受付トップへ戻る</a>
+  </div>
+</div>
+</div></div>
+</body></html>

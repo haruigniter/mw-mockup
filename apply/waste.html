@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>廃棄物申請</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="stepper"><div class="step active"><div class="step-num">1</div><span class="step-label">廃棄物種別選択</span></div><div class="step-sep"></div><div class="step "><div class="step-num">2</div><span class="step-label">基本情報入力</span></div><div class="step-sep"></div><div class="step "><div class="step-num">3</div><span class="step-label">確認・提出</span></div></div>
+<div class="main">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+  <a href="home.html" style="color:var(--apply-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ホームへ戻る
+  </a>
+</div>
+<div class="card">
+  <div class="card-title">廃棄物種別の選択</div>
+  <div class="info-box">廃棄物の種別を選択すると、担当管轄（管理部・事業部）が自動で決定されます。</div>
+  <div style="border:1.5px solid var(--apply-primary);border-radius:10px;padding:14px 16px;margin-bottom:8px;background:var(--apply-pale);display:flex;gap:12px;align-items:flex-start;">
+    <input type="radio" name="waste" checked style="margin-top:3px;">
+    <div style="flex:1;">
+      <div style="font-size:13px;font-weight:500;color:var(--gray-800);">産業廃棄物・廃液</div>
+      <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">マニフェスト要</div>
+      <div style="padding-left:8px;margin-top:8px;">
+        <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;font-size:12px;color:var(--gray-600);"><input type="radio" name="waste-sub" checked> 廃油・廃液・廃溶剤<span style="font-size:11px;padding:2px 8px;border-radius:10px;margin-left:auto;background:rgba(13,148,136,0.1);color:var(--teal);">→ 管理部管轄</span></label>
+        <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;font-size:12px;color:var(--gray-600);"><input type="radio" name="waste-sub"> 廃プラスチック・廃ゴム<span style="font-size:11px;padding:2px 8px;border-radius:10px;margin-left:auto;background:rgba(124,58,237,0.1);color:var(--purple);">→ 事業部管轄</span></label>
+      </div>
+    </div>
+  </div>
+  <div style="border:1.5px solid var(--gray-200);border-radius:10px;padding:14px 16px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;">
+    <input type="radio" name="waste" style="margin-top:3px;">
+    <div style="flex:1;">
+      <div style="font-size:13px;font-weight:500;">一般廃棄物</div>
+      <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">マニフェスト不要</div>
+    </div>
+  </div>
+  <div style="border:1.5px solid var(--gray-200);border-radius:10px;padding:14px 16px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;">
+    <input type="radio" name="waste" style="margin-top:3px;">
+    <div style="flex:1;">
+      <div style="font-size:13px;font-weight:500;">有価物</div>
+      <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">売却・リサイクル目的の搬出</div>
+    </div>
+  </div>
+</div>
+<div style="background:var(--green-pale);border:1px solid rgba(22,163,74,0.2);border-radius:8px;padding:14px;margin-bottom:16px;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <svg viewBox="0 0 20 20" fill="none" stroke="#16a34a" stroke-width="1.5" style="width:20px;height:20px;flex-shrink:0;"><polyline points="4 10 8 14 16 6"/></svg>
+    <div><div style="font-size:13px;font-weight:500;color:var(--green);">管轄が決定しました：管理部管轄</div></div>
+  </div>
+</div>
+<div class="btn-row"><a href="home.html" class="btn btn-ghost">キャンセル</a><button class="btn btn-apply-primary" onclick="alert('基本情報入力画面へ進みます（モックでは省略）');location.href='home.html'">次へ　基本情報入力 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M6 4l4 4-4 4"/></svg></button></div>
+</div></body></html>

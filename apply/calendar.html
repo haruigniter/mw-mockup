@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カレンダー — 来場予定確認</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="apply">
+
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div>
+
+<nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+  </div>
+</nav>
+
+<div class="main-wide">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:600;color:var(--gray-800);">来場予定カレンダー</div>
+      <div style="font-size:12px;color:var(--gray-400);">日付を選択するとその日の申請予定が表示されます</div>
+    </div>
+    <a href="home.html" style="color:var(--apply-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ホームへ
+    </a>
+  </div>
+
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+    
+    <!-- カレンダー本体 -->
+    <div class="card" style="margin-bottom:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button style="background:none;border:none;cursor:pointer;color:var(--gray-400);padding:4px;">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;"><path d="M10 4L6 8l4 4"/></svg>
+          </button>
+          <div style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;">2026年6月</div>
+          <button style="background:none;border:none;cursor:pointer;color:var(--gray-400);padding:4px;">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;"><path d="M6 4l4 4-4 4"/></svg>
+          </button>
+        </div>
+        <button class="btn btn-outline-apply" style="font-size:11px;padding:5px 12px;">今日</button>
+      </div>
+
+      <div class="calendar-grid">
+        <div class="calendar-header-day" style="color:var(--red);">日</div>
+        <div class="calendar-header-day">月</div>
+        <div class="calendar-header-day">火</div>
+        <div class="calendar-header-day">水</div>
+        <div class="calendar-header-day">木</div>
+        <div class="calendar-header-day">金</div>
+        <div class="calendar-header-day" style="color:var(--apply-primary);">土</div>
+
+        <!-- 6月のカレンダー（6/1は月曜） -->
+        <div class="calendar-day" style="color:var(--gray-300);"><div class="calendar-day-num">31</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">1</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">2</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>1件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">3</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">4</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">5</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>2件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">6</div></div>
+
+        <div class="calendar-day"><div class="calendar-day-num">7</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">8</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>1件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">9</div></div>
+        <div class="calendar-day selected"><div class="calendar-day-num" style="color:var(--apply-primary);font-weight:600;">10</div><div class="calendar-event-count" style="color:var(--apply-primary);font-weight:500;"><span class="calendar-event-dot"></span>3件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">11</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">12</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>1件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">13</div></div>
+
+        <div class="calendar-day"><div class="calendar-day-num">14</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">15</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>1件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">16</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">17</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">18</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">19</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>2件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">20</div></div>
+
+        <div class="calendar-day"><div class="calendar-day-num">21</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">22</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">23</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">24</div></div>
+        <div class="calendar-day has-event"><div class="calendar-day-num">25</div><div class="calendar-event-count"><span class="calendar-event-dot"></span>1件</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">26</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">27</div></div>
+
+        <div class="calendar-day"><div class="calendar-day-num">28</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">29</div></div>
+        <div class="calendar-day"><div class="calendar-day-num">30</div></div>
+        <div class="calendar-day" style="color:var(--gray-300);"><div class="calendar-day-num">1</div></div>
+        <div class="calendar-day" style="color:var(--gray-300);"><div class="calendar-day-num">2</div></div>
+        <div class="calendar-day" style="color:var(--gray-300);"><div class="calendar-day-num">3</div></div>
+        <div class="calendar-day" style="color:var(--gray-300);"><div class="calendar-day-num">4</div></div>
+      </div>
+    </div>
+
+    <!-- 選択日の予定 -->
+    <div class="card" style="margin-bottom:0;">
+      <div style="font-size:11px;font-weight:500;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">選択日の予定</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;color:var(--apply-primary);margin-bottom:12px;">6月10日（水）</div>
+      
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:14px;padding:8px 10px;background:var(--apply-pale);border-radius:6px;">
+        <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:600;color:var(--apply-primary);">3</div>
+        <div style="font-size:11px;color:var(--apply-primary);">件の来場予定</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="padding:10px 12px;border:1px solid var(--gray-200);border-radius:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+            <span class="status-badge status-p1" style="font-size:10px;">担当承認待ち</span>
+            <span style="font-size:11px;color:var(--gray-500);font-family:'DM Sans',sans-serif;">08:00〜17:00</span>
+          </div>
+          <div style="font-size:12px;font-weight:500;color:var(--gray-800);margin-top:4px;">空調設備点検・フィルター交換</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">工事作業 / 作業者3名 / 第1工場B棟</div>
+        </div>
+
+        <div style="padding:10px 12px;border:1px solid var(--gray-200);border-radius:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+            <span class="status-badge status-p3" style="font-size:10px;">承認済み</span>
+            <span style="font-size:11px;color:var(--gray-500);font-family:'DM Sans',sans-serif;">10:00〜11:00</span>
+          </div>
+          <div style="font-size:12px;font-weight:500;color:var(--gray-800);margin-top:4px;">部品納品</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">納品・引取 / 購買部</div>
+        </div>
+
+        <div style="padding:10px 12px;border:1px solid var(--gray-200);border-radius:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+            <span class="status-badge status-p3" style="font-size:10px;">承認済み</span>
+            <span style="font-size:11px;color:var(--gray-500);font-family:'DM Sans',sans-serif;">14:00〜15:00</span>
+          </div>
+          <div style="font-size:12px;font-weight:500;color:var(--gray-800);margin-top:4px;">試作品打ち合わせ</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">来客訪問 / 品質管理部</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--gray-100);">
+        <a href="history.html" style="font-size:12px;color:var(--apply-primary);text-decoration:none;display:flex;align-items:center;gap:4px;">
+          すべての申請履歴を見る
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M6 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

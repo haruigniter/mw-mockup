@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工事作業申請 — 工事内容入力</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="stepper"><div class="step active"><div class="step-num">1</div><span class="step-label">工事内容入力</span></div><div class="step-sep"></div><div class="step "><div class="step-num">2</div><span class="step-label">作業者・協力業者</span></div><div class="step-sep"></div><div class="step "><div class="step-num">3</div><span class="step-label">車両・書類</span></div><div class="step-sep"></div><div class="step "><div class="step-num">4</div><span class="step-label">確認・提出</span></div></div>
+<div class="main">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+  <a href="home.html" style="color:var(--apply-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ホームへ戻る
+  </a>
+</div>
+<div class="card">
+  <div class="card-title">工事基本情報</div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">作業開始日<span class="req">※</span></label><input type="date" class="form-input" value="2026-06-10"></div>
+    <div class="form-group"><label class="form-label">作業終了日<span class="req">※</span></label><input type="date" class="form-input" value="2026-06-10"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">作業開始時刻<span class="req">※</span></label><input type="time" class="form-input" value="08:00"></div>
+    <div class="form-group"><label class="form-label">作業終了時刻<span class="req">※</span></label><input type="time" class="form-input" value="17:00"></div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">工事種別<span class="req">※</span></label>
+    <select class="form-select"><option selected>空調・設備工事</option><option>電気工事</option><option>配管工事</option><option>設備点検・保守</option></select>
+  </div>
+  <div class="form-group">
+    <label class="form-label">作業場所<span class="req">※</span></label>
+    <div style="display:flex;gap:8px;">
+      <select class="form-select" style="flex:1;"><option>第1工場</option></select>
+      <input type="text" class="form-input" style="flex:1;" value="B棟 機械室">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">MW社担当者（メールアドレスで指定）<span class="req">※</span></label>
+    <input type="email" class="form-input" value="suzuki@mw.co.jp">
+    <div class="form-hint">入力されたメールアドレスからMW社担当者の氏名を自動表示：<strong style="color:var(--gray-700);">製造部 鈴木 一郎</strong></div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">工事内容<span class="req">※</span></label>
+    <textarea class="form-textarea" rows="4">空調設備の定期点検および冷媒フィルターの交換作業。B棟機械室の室外機2台が対象。</textarea>
+  </div>
+</div>
+<div class="btn-row btn-row-spread">
+  <button class="btn btn-save" onclick="alert('下書きとして保存しました。')">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M13 13H3V3h7l3 3v7z"/></svg>一時保存
+  </button>
+  <div style="display:flex;gap:8px;">
+    <a href="home.html" class="btn btn-ghost">キャンセル</a>
+    <a href="construction_2.html" class="btn btn-apply-primary">次へ　作業者選択 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M6 4l4 4-4 4"/></svg></a>
+  </div>
+</div>
+</div></body></html>

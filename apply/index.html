@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MW 申請サイト — ログイン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div>
+
+<div class="login-page apply">
+  <div class="login-card">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;">
+      <div style="width:36px;height:36px;border-radius:8px;background:#0f1f3d;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 16 16" fill="none" style="width:20px;height:20px;">
+          <rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/>
+          <rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/>
+          <rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/>
+          <rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/>
+        </svg>
+      </div>
+      <div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;color:var(--gray-800);">MW 申請サイト</div>
+        <div style="font-size:11px;color:var(--gray-400);">入退館管理システム</div>
+      </div>
+    </div>
+
+    <div class="login-title">ログイン</div>
+    <div class="login-sub">業者ID・個人ID・パスワードでログインしてください</div>
+
+    <div class="form-group">
+      <label class="form-label">業者ID</label>
+      <input type="text" class="form-input" value="VND-K7mP2xQn">
+    </div>
+    <div class="form-group">
+      <label class="form-label">個人ID</label>
+      <input type="text" class="form-input" value="0000000000000042">
+    </div>
+    <div class="form-group">
+      <label class="form-label">個人パスワード</label>
+      <input type="password" class="form-input" value="password">
+    </div>
+
+    <button class="btn-login apply" onclick="location.href='home.html'">ログイン</button>
+
+    <div style="margin-top:16px;text-align:center;font-size:11px;color:var(--gray-400);">
+      パスワードをお忘れの方は<a href="#" style="color:var(--apply-primary);">こちら</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

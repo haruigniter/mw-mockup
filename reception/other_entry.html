@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>その他申請あり（入場）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+body.reception { background: #e6f4ec; min-height: 100vh; }
+.tablet-frame {
+  max-width: 1080px;
+  min-height: 768px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+  border: 8px solid #1a1a1a;
+}
+.tablet-inner {
+  background: var(--reception-bg);
+  min-height: 752px;
+  display: flex;
+  flex-direction: column;
+}
+.rec-topbar {
+  background: var(--reception-primary);
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rec-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+.rec-logo-mark {
+  width: 28px; height: 28px;
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rec-logo-mark svg { width: 16px; height: 16px; }
+.rec-time {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+.rec-location {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 2px;
+}
+.rec-body {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.rec-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--gray-800);
+  margin-bottom: 8px;
+}
+.rec-subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 32px;
+}
+.rec-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.rec-menu-btn {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.rec-menu-btn:hover {
+  border-color: var(--reception-primary);
+  background: var(--reception-pale);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.rec-menu-ic {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--reception-pale);
+  color: var(--reception-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rec-menu-ic svg { width: 32px; height: 32px; }
+.rec-menu-label {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+.rec-menu-sub {
+  font-size: 12px;
+  color: var(--gray-400);
+  margin-top: 4px;
+}
+.rec-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--reception-primary);
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  align-self: flex-start;
+}
+.rec-back:hover { background: var(--reception-pale); }
+.rec-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.rec-card-wide {
+  background: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.big-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 18px;
+  border: 2px solid var(--gray-200);
+  border-radius: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  outline: none;
+}
+.big-input:focus { border-color: var(--reception-primary); }
+.big-btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+.tbtn {
+  padding: 18px 40px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.tbtn-primary { background: var(--reception-primary); color: white; }
+.tbtn-primary:hover { background: var(--reception-light); }
+.tbtn-ghost { background: white; color: var(--gray-700); border: 2px solid var(--gray-200); }
+.tbtn-ghost:hover { background: var(--gray-50); }
+.tbtn-success { background: #16a34a; color: white; }
+.tbtn-large { padding: 22px 48px; font-size: 18px; }
+
+.rec-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+.work-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 2px solid var(--reception-primary);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: var(--reception-pale);
+  cursor: pointer;
+}
+.work-item.unchecked { border-color: var(--gray-200); background: white; }
+.work-item input[type="checkbox"] {
+  width: 20px; height: 20px;
+  accent-color: var(--reception-primary);
+}
+.work-title { font-size: 15px; font-weight: 500; color: var(--gray-800); }
+.work-meta { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+.work-car {
+  font-size: 12px;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+}
+.success-circle {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.success-circle svg { width: 48px; height: 48px; color: #16a34a; }
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.rule-item input { margin-top: 3px; accent-color: var(--reception-primary); }
+.rule-text { font-size: 13px; color: var(--gray-700); }
+
+.contact-card {
+  background: var(--reception-pale);
+  border: 1px solid rgba(4,120,87,0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.contact-label { font-size: 11px; color: var(--reception-primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.contact-name { font-size: 18px; font-weight: 500; color: var(--gray-800); margin-top: 4px; }
+.contact-num { font-size: 22px; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--reception-primary); margin-top: 8px; font-variant-numeric: tabular-nums; }
+.contact-msg { 
+  margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(4,120,87,0.25);
+  font-size: 15px; color: var(--gray-700); line-height: 1.7;
+}
+.admin-badge {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--gray-400);
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+.qr-big {
+  width: 180px; height: 180px;
+  border: 4px solid var(--reception-primary);
+  border-radius: 12px;
+  background: white;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.qr-big::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  background: 
+    repeating-conic-gradient(#1a1a1a 0% 25%, transparent 0% 50%) 
+    50% / 12px 12px;
+  opacity: 0.9;
+}
+
+.entry-id-box {
+  background: #fef3c7;
+  border: 2px dashed var(--amber);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+.entry-id-label { font-size: 12px; color: var(--amber); font-weight: 500; }
+.entry-id-value { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 700; color: var(--amber); margin-top: 6px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; }
+.entry-id-note { font-size: 12px; color: var(--gray-600); margin-top: 6px; }
+</style>
+</head><body class="reception">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">受付webブラウザ</span>
+    <span style="color:#64748b;font-size:10px;margin-left:8px;">[ タブレット横向き想定：1080×768px ]</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div>
+<div class="tablet-frame"><div class="tablet-inner">
+<div class="rec-topbar">
+  <div>
+    <div class="rec-logo">
+      <div class="rec-logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <rect x="2" y="2" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.9"/>
+          <rect x="9" y="2" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.6"/>
+          <rect x="2" y="9" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.6"/>
+          <rect x="9" y="9" width="5" height="5" rx="1" fill="var(--reception-primary)" opacity="0.3"/>
+        </svg>
+      </div>
+      <div>
+        <div>MW 入退館受付</div>
+        <div class="rec-location">第1工場 正門受付</div>
+      </div>
+    </div>
+  </div>
+  <div class="rec-time" id="clock">2026/06/10 (水) 08:47</div>
+</div>
+<script>
+function updateClock(){
+  const d = new Date();
+  const days = ['日','月','火','水','木','金','土'];
+  const s = d.getFullYear()+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+
+    ' ('+days[d.getDay()]+') '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  const el = document.getElementById('clock');
+  if(el) el.textContent = s;
+}
+updateClock();
+setInterval(updateClock, 30000);
+</script>
+<div class="rec-body" id="s1">
+  <a href="index.html" class="rec-back">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>
+  戻る
+</a>
+  <div class="rec-card-wide">
+    <div class="rec-title">その他申請あり（入場）</div>
+    <div class="rec-subtitle">QRコードを受付カメラにかざしてください</div>
+    
+    <div style="max-width:320px;margin:40px auto 0;text-align:center;">
+      <div style="width:220px;height:220px;border:3px dashed var(--reception-primary);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:white;margin:0 auto 20px;">
+        <svg viewBox="0 0 32 32" fill="none" stroke="var(--reception-primary)" stroke-width="1.5" style="width:56px;height:56px;">
+          <rect x="4" y="4" width="10" height="10"/>
+          <rect x="18" y="4" width="10" height="10"/>
+          <rect x="4" y="18" width="10" height="10"/>
+          <rect x="18" y="18" width="4" height="4"/>
+          <rect x="24" y="18" width="4" height="4"/>
+          <rect x="18" y="24" width="4" height="4"/>
+          <rect x="24" y="24" width="4" height="4"/>
+        </svg>
+        <div style="font-size:13px;color:var(--reception-primary);font-weight:500;">QRスキャン待機中</div>
+      </div>
+      <div style="font-size:12px;color:var(--gray-400);">または下記のボタンをタップしてスキャン結果を確認（モック）</div>
+      <div class="big-btn-row">
+        <button class="tbtn tbtn-primary" onclick="document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='flex';" style="margin:16px auto 0;">
+          スキャン完了（モック）
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rec-body" id="s2" style="display:none;">
+  <a href="index.html" class="rec-back">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>
+  戻る
+</a>
+  <div class="rec-card-wide">
+    <div class="rec-title">申請内容の確認</div>
+    <div class="rec-subtitle">以下の内容で入場処理を行います</div>
+
+    <div style="background:var(--gray-50);border-radius:10px;padding:20px;margin:20px 0;">
+      <table style="width:100%;font-size:14px;">
+        <tr><td style="color:var(--gray-500);padding:6px 0;width:140px;">申請種別</td><td style="color:var(--gray-800);">来客・訪問申請（一般）</td></tr>
+        <tr><td style="color:var(--gray-500);padding:6px 0;">来場者</td><td style="color:var(--gray-800);">株式会社テクノ　伊藤 花子</td></tr>
+        <tr><td style="color:var(--gray-500);padding:6px 0;">訪問先</td><td style="color:var(--gray-800);">品質管理部 中村 洋子</td></tr>
+        <tr><td style="color:var(--gray-500);padding:6px 0;">予定時刻</td><td style="color:var(--gray-800);">14:00〜15:00</td></tr>
+        <tr><td style="color:var(--gray-500);padding:6px 0;">申請番号</td><td style="color:var(--gray-800);font-family:'DM Sans',sans-serif;">#2026-0610-017</td></tr>
+      </table>
+    </div>
+
+    <div style="background:var(--amber-pale);border:1px solid rgba(217,119,6,0.25);border-radius:10px;padding:16px 18px;margin-bottom:20px;">
+      <div style="font-size:13px;font-weight:500;color:var(--amber);margin-bottom:8px;">車両番号の確認・変更（当日のみ適用）</div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <input type="text" class="big-input" value="品川 500 あ 1234" style="flex:1;font-size:15px;padding:10px 14px;">
+        <button class="tbtn tbtn-ghost" style="padding:10px 18px;font-size:13px;">変更</button>
+      </div>
+    </div>
+
+    <div class="big-btn-row">
+      <a href="index.html" class="tbtn tbtn-ghost">キャンセル</a>
+      <button class="tbtn tbtn-primary tbtn-large" onclick="document.getElementById('s2').style.display='none';document.getElementById('s3').style.display='flex';">
+        入場処理を実行する
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><polyline points="3 8 6 11 13 4"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="rec-body" id="s3" style="display:none;">
+  <div class="rec-card" style="padding:40px;">
+    <div style="text-align:center;margin-bottom:20px;">
+      <div class="success-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 12 9 17 20 7"/></svg>
+      </div>
+      <div class="rec-title">入場処理が完了しました</div>
+      <div class="rec-subtitle">ようこそお越しくださいました</div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-label">訪問先担当者への連絡先</div>
+      <div class="contact-name">品質管理部　中村 洋子</div>
+      <div class="contact-num">内線 2345 / 090-1111-2222</div>
+      <div class="contact-msg">
+        お越しいただきありがとうございます。<br>
+        1階ロビーにて少々お待ちください。担当者がすぐにお迎えに上がります。
+      </div>
+      <div class="admin-badge">※ このメッセージは管理者が変更可能です</div>
+    </div>
+
+    <div class="big-btn-row">
+      <a href="index.html" class="tbtn tbtn-primary tbtn-large">受付トップへ戻る</a>
+    </div>
+  </div>
+</div>
+</div></div>
+</body></html>

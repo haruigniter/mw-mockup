@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申請詳細・承認画面</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="approve">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">承認サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar approve">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark approve"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 承認サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">製造部 鈴木 一郎（担当承認者）</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="main-wide">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+  <a href="home.html" style="color:var(--approve-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ダッシュボードへ戻る
+  </a>
+</div>
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+  <div>
+    <!-- 申請概要 -->
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span class="status-badge status-p1">担当承認待ち（P1）</span>
+        <span class="badge badge-gray">工事作業申請</span>
+        <span style="font-size:11px;color:var(--gray-400);margin-left:auto;font-family:'DM Sans',sans-serif;">#2026-0610-042</span>
+      </div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;color:var(--gray-800);margin-bottom:16px;">空調設備点検・フィルター交換</div>
+      
+      <table class="confirm-table">
+        <tr><th>申請者</th><td>山田建設株式会社　田中 太郎</td></tr>
+        <tr><th>業者ID</th><td>VND-K7mP2xQn</td></tr>
+        <tr><th>工事種別</th><td>空調・設備工事</td></tr>
+        <tr><th>作業日時</th><td>2026年6月10日（水）08:00〜17:00</td></tr>
+        <tr><th>作業場所</th><td>第1工場　B棟 機械室</td></tr>
+        <tr><th>工事内容</th><td>空調設備の定期点検および冷媒フィルターの交換作業。B棟機械室の室外機2台が対象。</td></tr>
+        <tr><th>車両</th><td>品川 500 あ 1234（ハイエース 白）</td></tr>
+        <tr><th>添付書類</th><td>安全計画書_山田建設_20260610.pdf　<span class="badge badge-ok" style="font-size:10px;">添付済み</span></td></tr>
+      </table>
+    </div>
+
+    <!-- 作業者一覧 -->
+    <div class="card">
+      <div class="card-title">作業者（3名）</div>
+      <div class="person-row">
+        <div class="person-avatar">TT</div>
+        <div style="flex:1;"><div class="person-name">田中 太郎　<span style="font-weight:400;font-size:11px;color:var(--gray-400);">自社</span></div><div class="person-sub">冷媒フロン取扱技術者 / 空調設備施工管理技士</div></div>
+        <span class="badge badge-ok">資格 OK</span>
+      </div>
+      <div class="person-row">
+        <div class="person-avatar">KS</div>
+        <div style="flex:1;"><div class="person-name">佐藤 健二　<span style="font-weight:400;font-size:11px;color:var(--gray-400);">自社</span></div><div class="person-sub">冷媒フロン取扱技術者</div></div>
+        <span class="badge badge-ok">資格 OK</span>
+      </div>
+      <div class="person-row">
+        <div class="person-avatar" style="background:rgba(13,148,136,0.15);color:var(--teal);">YY</div>
+        <div style="flex:1;"><div class="person-name">山本 義雄　<span style="font-weight:400;font-size:11px;color:var(--gray-400);">山本工業（協力業者）</span></div><div class="person-sub">冷媒フロン取扱技術者</div></div>
+        <span class="badge badge-ok">資格 OK</span>
+      </div>
+    </div>
+
+    <!-- 承認アクション -->
+    <div class="card" style="background:var(--approve-pale);border-color:var(--approve-primary);">
+      <div class="card-title" style="color:var(--approve-primary);">承認操作</div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-approve-primary" onclick="alert('承認しました。\nグループ承認者に通知を送信しました。');location.href='home.html'" style="flex:1;">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="3 8 6 11 13 4"/></svg>
+          承認する
+        </button>
+        <button class="btn btn-ghost" onclick="document.getElementById('sendback-modal').style.display='flex';" style="flex:1;background:var(--orange-pale);color:var(--orange);border-color:rgba(234,88,12,0.2);">
+          差し戻す
+        </button>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:10px;">
+        <button class="btn btn-ghost" onclick="alert('代理承認者を指定します（メールアドレス入力）');" style="flex:1;font-size:12px;">代理承認を依頼</button>
+        <button class="btn btn-danger" onclick="if(confirm('本当に取り消しますか？')){alert('申請を取り消しました。');location.href='home.html';}" style="flex:1;font-size:12px;">申請を取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右カラム：承認履歴 -->
+  <div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-title">承認フロー</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:10px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--green);margin-top:6px;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:500;color:var(--gray-800);">申請提出</div>
+            <div style="font-size:11px;color:var(--gray-400);">山田建設　田中 太郎</div>
+            <div style="font-size:11px;color:var(--gray-400);">2026/06/09 10:15</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:6px;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:500;color:var(--amber);">担当承認　待機中...</div>
+            <div style="font-size:11px;color:var(--gray-400);">製造部 鈴木 一郎（あなた）</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--gray-300);margin-top:6px;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div style="font-size:12px;color:var(--gray-400);">グループ承認</div>
+            <div style="font-size:11px;color:var(--gray-400);">田村 部長（予定）</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--gray-300);margin-top:6px;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div style="font-size:12px;color:var(--gray-400);">QR・PDF自動発行</div>
+            <div style="font-size:11px;color:var(--gray-400);">作業者3名のメールへ送付</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">関連情報</div>
+      <div style="font-size:12px;color:var(--gray-500);line-height:1.8;">
+        この申請者の過去申請<br>
+        <a href="#" style="color:var(--approve-primary);">✓ 5件（直近3ヶ月・すべて承認済み）</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- 差し戻しモーダル -->
+<div id="sendback-modal" style="display:none;position:fixed;inset:0;background:rgba(15,31,61,0.5);z-index:500;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:white;border-radius:12px;padding:24px;max-width:480px;width:100%;">
+    <div style="font-size:16px;font-weight:600;margin-bottom:6px;">申請を差し戻す</div>
+    <div style="font-size:12px;color:var(--gray-400);margin-bottom:16px;">差し戻し先と理由を選択してください</div>
+    
+    <div class="form-group">
+      <label class="form-label">差し戻し先<span class="req">※</span></label>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label style="display:flex;align-items:flex-start;gap:10px;padding:10px;border:1px solid var(--gray-200);border-radius:8px;cursor:pointer;">
+          <input type="radio" name="sendback" checked style="margin-top:3px;">
+          <div>
+            <div style="font-size:13px;font-weight:500;">申請者へ差し戻す</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">申請者が内容を修正して再提出します</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:10px;padding:10px;border:1px solid var(--gray-200);border-radius:8px;cursor:pointer;">
+          <input type="radio" name="sendback" style="margin-top:3px;">
+          <div>
+            <div style="font-size:13px;font-weight:500;">担当承認者へ差し戻す</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">グループ承認者が使用。担当承認者に再確認を依頼</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">差し戻し理由<span class="req">※</span></label>
+      <select class="form-select" style="margin-bottom:8px;">
+        <option>（テンプレートから選択）</option>
+        <option>作業内容に不足があります</option>
+        <option>資格証明書が不足しています</option>
+        <option>安全計画書の記載内容をご確認ください</option>
+        <option>自由記述</option>
+      </select>
+      <textarea class="form-textarea" rows="3" placeholder="詳細な理由を入力してください">松本 勇さんの資格証明書を追加してください。</textarea>
+    </div>
+
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button class="btn btn-ghost" onclick="document.getElementById('sendback-modal').style.display='none';">キャンセル</button>
+      <button class="btn" style="background:var(--orange);color:white;" onclick="alert('差し戻しを送信しました。');location.href='home.html';">差し戻しを送信</button>
+    </div>
+  </div>
+</div>
+
+</body></html>

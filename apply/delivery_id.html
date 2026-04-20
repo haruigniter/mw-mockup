@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>納品・引取・出荷申請（業者IDあり）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="main">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+  <a href="home.html" style="color:var(--apply-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ホームへ戻る
+  </a>
+</div>
+<div class="card">
+  <div class="card-title">基本情報</div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">来場日<span class="req">※</span></label><input type="date" class="form-input" value="2026-06-11"></div>
+    <div class="form-group"><label class="form-label">来場時刻<span class="req">※</span></label><input type="time" class="form-input" value="10:00"></div>
+  </div>
+  <div class="form-group"><label class="form-label">申請種別<span class="req">※</span></label>
+    <select class="form-select"><option>納品</option><option>引取</option><option>出荷</option></select></div>
+  <div class="form-group"><label class="form-label">品目・内容<span class="req">※</span></label><input type="text" class="form-input" value="空調フィルター 5箱"></div>
+  <div class="form-group">
+    <label class="form-label">MW社担当者（メールアドレスで指定）<span class="req">※</span></label>
+    <input type="email" class="form-input" value="yamamoto@mw.co.jp">
+    <div class="form-hint">担当者名を自動表示：<strong style="color:var(--gray-700);">購買部 山本 次郎</strong></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">車両情報<span style="font-size:11px;font-weight:400;color:var(--gray-400);margin-left:8px;text-transform:none;letter-spacing:0;">任意</span></div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">車両番号</label><input type="text" class="form-input" placeholder="品川 500 あ 1234"></div>
+    <div class="form-group"><label class="form-label">車種・備考</label><input type="text" class="form-input" placeholder="軽トラ（白）"></div>
+  </div>
+</div>
+<div class="btn-row btn-row-spread">
+  <a href="home.html" class="btn btn-ghost">キャンセル</a>
+  <button class="btn btn-apply-primary" onclick="alert('承認依頼を提出しました。');location.href='home.html'">承認依頼を提出する <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><polyline points="3 8 6 11 13 4"/></svg></button>
+</div>
+</div></body></html>

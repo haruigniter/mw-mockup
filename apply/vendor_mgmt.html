@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>業者登録・修正</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="main" style="max-width:800px;">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+  <a href="home.html" style="color:var(--apply-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ホームへ戻る
+  </a>
+</div>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+    <div class="card-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">業者基本情報</div>
+    <span style="font-size:12px;color:var(--gray-400);">業者ID：VND-K7mP2xQn</span>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">会社名</label><input type="text" class="form-input" value="山田建設株式会社"></div>
+    <div class="form-group"><label class="form-label">法人番号 / 仕入先番号</label><input type="text" class="form-input" value="1234567890123"></div>
+  </div>
+  <div class="form-group"><label class="form-label">業者主担当者氏名</label><input type="text" class="form-input" value="田中 太郎"></div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">メールアドレス</label><input type="email" class="form-input" value="tanaka@yamada-const.co.jp"></div>
+    <div class="form-group"><label class="form-label">電話番号</label><input type="tel" class="form-input" value="03-1234-5678"></div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;margin-top:8px;"><button class="btn btn-apply-primary" onclick="alert('業者情報を保存しました。')">保存する</button></div>
+</div>
+<div class="card">
+  <div class="card-title">パスワード管理</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid var(--gray-200);border-radius:8px;margin-bottom:8px;">
+    <div><div style="font-size:13px;font-weight:500;">登録パス</div><div style="font-size:11px;color:var(--gray-400);">個人セルフ登録時の合言葉</div></div>
+    <button class="btn btn-outline-apply" style="font-size:11px;padding:5px 12px;">変更する</button>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid var(--gray-200);border-radius:8px;">
+    <div><div style="font-size:13px;font-weight:500;">連結パス</div><div style="font-size:11px;color:var(--gray-400);">協力業者との情報連携用</div></div>
+    <button class="btn btn-outline-apply" style="font-size:11px;padding:5px 12px;">変更する</button>
+  </div>
+</div>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+    <div class="card-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">個人ID　メンバー一覧</div>
+    <button class="btn btn-outline-apply" style="font-size:11px;padding:5px 12px;"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>メンバー追加</button>
+  </div>
+  <div class="person-row"><div class="person-avatar">TT</div><div style="flex:1;"><div class="person-name">田中 太郎　<span style="font-size:10px;padding:1px 6px;border-radius:4px;background:var(--apply-pale);color:var(--apply-primary);">主担当</span></div><div class="person-sub">個人ID: 0000000000000042</div></div></div>
+  <div class="person-row"><div class="person-avatar">KS</div><div style="flex:1;"><div class="person-name">佐藤 健二</div><div class="person-sub">個人ID: 0000000000000043</div></div></div>
+  <div class="person-row"><div class="person-avatar">YM</div><div style="flex:1;"><div class="person-name">松本 勇</div><div class="person-sub">個人ID: 0000000000000044</div></div></div>
+</div>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+    <div class="card-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">連結業者の管理</div>
+    <button class="btn btn-outline-apply" style="font-size:11px;padding:5px 12px;"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>業者を追加</button>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid rgba(13,148,136,0.2);border-radius:8px;background:var(--teal-pale);">
+    <div><div style="font-size:13px;font-weight:500;color:var(--teal);">株式会社山本工業</div><div style="font-size:11px;color:var(--gray-400);">VND-AB3Xyz12　/ 連結済み</div></div>
+    <button style="font-size:11px;color:var(--red);background:none;border:none;cursor:pointer;">連結解除</button>
+  </div>
+</div>
+</div></body></html>

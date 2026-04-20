@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個人登録情報の確認・修正</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body class="apply">
+<div class="mock-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="mock-label">MW入退館管理システム モックアップ</span>
+    <span style="color:#64748b;">/</span>
+    <span style="color:white;">申請サイト</span>
+  </div>
+  <a href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M10 4L6 8l4 4"/></svg>
+    モックトップへ戻る
+  </a>
+</div><nav class="navbar apply">
+  <a class="navbar-brand" href="home.html">
+    <div class="brand-mark apply"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="white" opacity="0.9"/><rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.3"/></svg></div>
+    <span class="brand-name">MW 申請サイト</span>
+    <span class="brand-sub">入退館管理システム</span>
+  </a>
+  <div class="navbar-right">
+    <span class="user-badge">山田建設　田中 太郎</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">ログアウト</a>
+  </div>
+</nav>
+<div class="main">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+  <a href="home.html" style="color:var(--apply-primary);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:4px;">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px;"><path d="M10 4L6 8l4 4"/></svg>ホームへ戻る
+  </a>
+</div>
+<div class="card">
+  <div class="card-title">個人情報</div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">氏名<span class="req">※</span></label><input type="text" class="form-input" value="田中 太郎"></div>
+    <div class="form-group"><label class="form-label">氏名（読み）</label><input type="text" class="form-input" value="たなか たろう"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label class="form-label">メールアドレス<span class="req">※</span></label><input type="email" class="form-input" value="tanaka@yamada-const.co.jp"></div>
+    <div class="form-group"><label class="form-label">電話番号<span class="req">※</span></label><input type="tel" class="form-input" value="090-1234-5678"></div>
+  </div>
+  <div style="background:var(--gray-50);border-radius:6px;padding:10px 12px;font-size:12px;color:var(--gray-500);margin-top:4px;">個人ID：0000000000000042</div>
+</div>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+    <div class="card-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">資格情報</div>
+    <button class="btn btn-outline-apply" style="font-size:11px;padding:5px 12px;">追加する</button>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border:1px solid var(--gray-200);border-radius:8px;margin-bottom:8px;">
+    <div><div style="font-size:13px;font-weight:500;">冷媒フロン取扱技術者</div><div style="font-size:11px;color:var(--gray-400);">FR-2024-001234　取得：2024/03/15</div></div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border:1px solid var(--gray-200);border-radius:8px;">
+    <div><div style="font-size:13px;font-weight:500;">空調設備施工管理技士（1級）</div><div style="font-size:11px;color:var(--gray-400);">AC-1-20220567　取得：2022/09/01</div></div>
+  </div>
+</div>
+<div class="btn-row"><a href="home.html" class="btn btn-ghost">キャンセル</a><button class="btn btn-apply-primary" onclick="alert('個人情報を保存しました。')">保存する</button></div>
+</div></body></html>
