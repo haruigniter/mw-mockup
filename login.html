@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ログイン — MW入退館管理システム</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: linear-gradient(180deg, #0f1f3d 0%, #1a2f52 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+}
+.logo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+.sub {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+.field input {
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.field input:focus { border-color: #2563eb; }
+.field input.error { border-color: #ef4444; }
+.btn {
+  width: 100%;
+  padding: 14px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 8px;
+}
+.btn:hover { background: #1e40af; }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { background: #94a3b8; cursor: not-allowed; }
+.error-msg {
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 12px;
+  display: none;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">iPresence × MW</div>
+  <div class="title">ログイン</div>
+  <div class="sub">MW入退館管理システム<br>モックアップサイト</div>
+
+  <div class="field">
+    <label>ユーザー名</label>
+    <input type="text" id="username" placeholder="ユーザー名を入力" autocomplete="username">
+  </div>
+  <div class="field">
+    <label>パスワード</label>
+    <input type="password" id="password" placeholder="パスワードを入力" autocomplete="current-password" onkeydown="if(event.key==='Enter')login()">
+  </div>
+
+  <button class="btn" id="btn" onclick="login()">ログイン</button>
+  <div class="error-msg" id="error-msg">ユーザー名またはパスワードが正しくありません</div>
+</div>
+
+<script>
+async function login() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const btn = document.getElementById('btn');
+  const errorMsg = document.getElementById('error-msg');
+
+  if (!username || !password) return;
+
+  btn.disabled = true;
+  btn.textContent = 'ログイン中...';
+  errorMsg.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (res.ok) {
+      window.location.href = '/';
+    } else {
+      errorMsg.style.display = 'block';
+      document.getElementById('username').classList.add('error');
+      document.getElementById('password').classList.add('error');
+      document.getElementById('password').value = '';
+    }
+  } catch (e) {
+    errorMsg.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'ログイン';
+  }
+}
+</script>
+</body>
+</html>
