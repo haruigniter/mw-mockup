@@ -8,5 +8,5 @@ export default function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/index.html', '/apply/:path*', '/approve/:path*', '/reception/:path*'],
+  matcher: ['/', '/index.html', '/apply/:path*', '/approve/:path*', '/reception/:path*'],
 };
